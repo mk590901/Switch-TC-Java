@@ -50,6 +50,10 @@ public class SwitchResetHelper {
         helper_.post(eventName);
     }
 
+    public String state() {
+        return helper_.getState();
+    }
+
     private void createHelper() {
         helper_.insert("switch", "init", new ThreadedCodeExecutor(helper_, "off", Arrays.asList(
                 // this::switchEntry,

@@ -14,11 +14,18 @@ public class ExampleUnitTest {
     @Test
     public void testSwitch() {
         SwitchResetHelper hsmHelper = new SwitchResetHelper();
+        assertEquals(hsmHelper.state(), "switch");
         hsmHelper.init();
+        assertEquals(hsmHelper.state(), "off");
         hsmHelper.run("TURN");
+        assertEquals(hsmHelper.state(), "on");
         hsmHelper.run("RESET");
+        assertEquals(hsmHelper.state(), "off");
         hsmHelper.run("TURN");
+        assertEquals(hsmHelper.state(), "on");
         hsmHelper.run("TURN");
+        assertEquals(hsmHelper.state(), "off");
         hsmHelper.run("RESET");
+        assertEquals(hsmHelper.state(), "off");
     }
 }
