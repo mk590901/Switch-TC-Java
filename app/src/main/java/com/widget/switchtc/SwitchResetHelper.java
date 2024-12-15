@@ -1,7 +1,6 @@
 package com.widget.switchtc;
-
 import java.util.Arrays;
-import java.util.function.Consumer;
+import java.util.List;
 
 public class SwitchResetHelper {
     private final QHsmHelper helper_ = new QHsmHelper("switch");
@@ -46,7 +45,7 @@ public class SwitchResetHelper {
         helper_.post("init");
     }
 
-    public void run(String eventName) {
+    public void run(final String eventName) {
         helper_.post(eventName);
     }
 
@@ -55,29 +54,29 @@ public class SwitchResetHelper {
     }
 
     private void createHelper() {
-        helper_.insert("switch", "init", new ThreadedCodeExecutor(helper_, "off", Arrays.asList(
+        helper_.insert("switch", "init", new ThreadedCodeExecutor(helper_, "off", List.of(
                 // this::switchEntry,
                 // this::switchInit,
                 this::offEntry
         )));
-        helper_.insert("off", "RESET", new ThreadedCodeExecutor(helper_, "off", Arrays.asList(
+        helper_.insert("off", "RESET", new ThreadedCodeExecutor(helper_, "off", List.of(
                 this::offReset,
                 // this::offExit,
                 // this::switchInit,
                 this::offEntry
         )));
-        helper_.insert("off", "TURN", new ThreadedCodeExecutor(helper_, "on", Arrays.asList(
+        helper_.insert("off", "TURN", new ThreadedCodeExecutor(helper_, "on", List.of(
                 this::offTurn,
                 this::onEntry
         )));
-        helper_.insert("on", "RESET", new ThreadedCodeExecutor(helper_, "off", Arrays.asList(
+        helper_.insert("on", "RESET", new ThreadedCodeExecutor(helper_, "off", List.of(
                 this::offReset,
                 // this::onExit,
                 // this::offExit,
                 // this::switchInit,
                 this::offEntry
         )));
-        helper_.insert("on", "TURN", new ThreadedCodeExecutor(helper_, "off", Arrays.asList(
+        helper_.insert("on", "TURN", new ThreadedCodeExecutor(helper_, "off", List.of(
                 this::onTurn,
                 // this::onExit,
                 // this::offExit,
