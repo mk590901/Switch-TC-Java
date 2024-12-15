@@ -13,7 +13,7 @@ public class ExampleUnitTest {
 
     @Test
     public void testSwitch() {
-        SwitchResetHelper hsmHelper = new SwitchResetHelper();
+        Switch_resetHelper hsmHelper = new Switch_resetHelper();
         assertEquals(hsmHelper.state(), "switch");
         hsmHelper.init();
         assertEquals(hsmHelper.state(), "off");

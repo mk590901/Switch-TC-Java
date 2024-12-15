@@ -1,11 +1,10 @@
 package com.widget.switchtc;
-import java.util.Arrays;
 import java.util.List;
 
-public class SwitchResetHelper {
+public class Switch_resetHelper {
     private final QHsmHelper helper_ = new QHsmHelper("switch");
 
-    public SwitchResetHelper() {
+    public Switch_resetHelper() {
         createHelper();
     }
 
