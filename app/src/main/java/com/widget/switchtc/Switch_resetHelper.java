@@ -1,3 +1,5 @@
+//	Class Switch_resetHelper automatically generated at 2024-12-15 13:06:03
+
 package com.widget.switchtc;
 import java.util.List;
 
